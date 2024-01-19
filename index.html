@@ -1,7 +1,50 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Your Audio Guide Title</title>
+    <link rel="stylesheet" href="./audioguide_controls.css">
+    <link rel="stylesheet" href="./audioguide_content.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"> <!-- Font Awesome for buttons -->  
+    <script src="./audioguide_script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<header>
+    <div class="title">
+        <h1 class="audiotrack_title">4: Fahrrad-Reparaturstation</h1>
+    </div>
+</header>
+
+<main>
+    <div class="audiotrack_content">
+        <img src="./computer-angry.gif" alt="This is annoying" 
+         class="audiotrack_image">
+        <p>Lorem ipsum dolor sit amet consec tetur adipis icing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        
+    </div>
+</main>
+
+    <!-- Audio Player -->
+    <audio controls id="audioPlayer">
+        <source src="./file_example_MP3_2MG.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+<footer>
+    <div class="progress-bar-container">
+        <div id="globalProgressBar"></div>
+    </div>
+    <div class="footer-controls">
+        <!-- currently uses stock symbols, maybe change them to some we like and also add text: "|< 2 Play 4 >|" -->
+        <button id="prevTrack"><i class="fa fa-backward"></i>3</button>
+        <button id="playPause"><i class="fa fa-play"></i></button>
+        <button id="nextTrack">5 <i class="fa fa-forward"></i></button>
+    </div>
+</footer>
+
 </body>
 </html>

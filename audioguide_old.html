@@ -1,0 +1,158 @@
+<style>
+    * {
+    box-sizing: border-box;
+}
+
+
+body, html {
+    color: #222;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+main {
+    width: 100%;
+    height: calc(100% - 60px); /* Adjust based on header and footer height */
+}
+
+.track-wrapper {
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start; /* For scroll snapping */
+}
+
+.track {
+    text-align: center;
+    padding: 15px;
+}
+
+img {
+    max-width: 100%; /* Responsive image */
+    height: auto;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: #008351;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:10x;
+    background-color: #008351;
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-bar {
+    width: 90%;
+    height: 10px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.footer-controls {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.footer-controls i {
+    margin-right: 5px;
+    font-size: 1.2em; /* Adjust the size as needed */
+    /* Add other styles like color if needed */
+}
+
+
+/* Add any additional styles as needed */
+
+
+/* Add any additional styles as needed */
+
+</style>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Audio Guide Title</title>
+    <link rel="stylesheet" href="./audioguide_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"> <!-- Font Awesome for buttons -->
+    <script src="./audioguide_script.js"></script>
+</head>
+<body>
+
+<main>
+    <!-- Track 1 -->
+    <div class="track-wrapper" id="track1">
+        <section class="track">
+            <h2>Track 1 Title</h2>
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            <img src="./image1.jpeg" alt="Description of Image 1">
+            <audio id="audio1">
+                <source src="path-to-audio1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div class="controls">
+                <!-- has been moved to footer, change that back? -->
+                <!-- Additional custom buttons like volume, next, previous can be added here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Repeat this block for each track (2 to 6) -->
+
+</main>
+
+<footer>
+    <div class="progress-bar" id="globalProgressBar"></div>
+    <div class="footer-controls">
+        <!-- currently uses stock symbols, maybe change them to some we like and also add text: "|< 2 Play 4 >|" -->
+        <button id="prevTrack"><i class="fa fa-backward"></i>4</button>
+        <button id="playPause"><i class="fa fa-play"></i></button>
+        <button id="nextTrack"><i class="fa fa-forward"></i>5</button>
+    </div>
+</footer>
+
+<div class="controls">
+    <button id="prevTrack">|< 2</button>
+    <button id="playPause">Play</button>
+    <button id="nextTrack">4 >|</button>
+</div>
+
+
+<script>
+    // JavaScript for custom controls and navigation will go here
+</script>
+
+</body>
+</html>
