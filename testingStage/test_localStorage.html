@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Choices</title>
+    <script>
+        function storeChoice(choice) {
+            localStorage.setItem('selectedChoice', choice);
+            document.getElementById('displayChoice').textContent = choice;
+            document.getElementById('buttons').style.display = 'none';
+        }
+
+        window.onload = function() {
+            var choice = localStorage.getItem('selectedChoice');
+            if (choice) {
+                document.getElementById('displayChoice').textContent = choice;
+                document.getElementById('buttons').style.display = 'none';
+            } else {
+                document.getElementById('buttons').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Button Choices</h1>
+    <div id="buttons">
+        <button onclick="storeChoice('Button 1')">Button 1</button>
+        <button onclick="storeChoice('Button 2')">Button 2</button>
+        <button onclick="storeChoice('Button 3')">Button 3</button>
+        <button onclick="storeChoice('Button 4')">Button 4</button>
+    </div>
+    <br>
+    <br>
+    <label>Selected Choice: </label>
+    <span id="displayChoice"></span>
+</body>
+</html>
