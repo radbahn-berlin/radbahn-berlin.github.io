@@ -1,0 +1,26 @@
+<!--Simple test to see how I might be able to store the language selection.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Choices</title>
+    <script>
+        // localStorage is in browser, so this should only be asked once
+        function storeChoice(choice) {
+            localStorage.setItem('selectedChoice', choice);
+            document.getElementById('displayChoice').textContent = choice;
+        }
+    </script>
+</head>
+<body>
+    <h1>Button Choices</h1>
+    <button onclick="storeChoice('Button 1')">Button 1</button>
+    <button onclick="storeChoice('Button 2')">Button 2</button>
+    <button onclick="storeChoice('Button 3')">Button 3</button>
+    <button onclick="storeChoice('Button 4')">Button 4</button>
+    <br>
+    <br>
+    <label>Selected Choice: </label>
+    <span id="displayChoice"></span>
+</body>
+</html>
