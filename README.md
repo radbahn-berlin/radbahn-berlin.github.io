@@ -6,8 +6,12 @@
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details  
 -> easily toggle extra information (for example the transcript to keep it clean by default!)
 
+use Nuxt ?  
+https://nuxt.com/  
 
 ## ACCESSIBILITY  
+
+### basic principles  
 
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio#accessibility_concerns  
 
@@ -16,6 +20,14 @@ follow the above (and do some extra research) for the obvious accessilibity opti
 but also use own experience with neurodivergent pecularities to build an audioplayer I would want to use  
 -> playback speed setting!  
 -> 
+
+### captions/transcript  
+
+show the entire text, or only the actual captions?  
+if captions only, add option to show full text (maybe via <details> element)  
+
+hide text / turn off captions by default?  
+not showing the text at first would make for a cleaner and simpler look. might also get people to actually listen and engage, instead of quickly skimming over the text and moving on  
 
 
 
@@ -47,6 +59,13 @@ but needs custom control elements
 https://webaudio.github.io/web-audio-api/  
 we don't need the expanded functionality of this  
 
+### VueUse
+
+a large collection of pre-written vue functions, so I don't have to actually write *everything* from scratch  
+
+for example:  
+https://vueuse.org/core/useMediaControls/
+
 ### amplitude.js  
 
 https://521dimensions.com/open-source/amplitudejs/docs/installation/initialization.html  
@@ -66,6 +85,10 @@ Howler.js supports a wide array of audio codecs that have varying browser suppor
 It is important to remember that howler.js selects the first compatible sound from your array of sources. So if you want webm to be used before mp3, you need to put the sources in that order.
 
 
+### Icons for Play/Pause/etc.  
+
+https://icon-sets.iconify.design/?query=play  
+IonIcons are nice and have everything we need
 
 ## language selection 
 
@@ -101,6 +124,43 @@ Could be quite an interesting insight. Should be easily done without having to u
 A quick and dirty solution (probably not the final one) would be to simply increment counters in a log-file stored on the server. 
 
 
+## Mobile / Desktop 
+
+The app-like layout is really neat for phone screens, but would be really annoying on a big screen. Just making it reactive would look really dumb.  
+For a big screen, it would make a lot more sense to show multiple / all the audiotracks on one page, instead of doing all the reloading.  
+
+Desktop view could have cards or such?  
+Or just all the tracks going from top to bottom (with <details> giving the option to show the text). 
+so... 
+image on the left, audio player on the right, little "Hier aufklappen für den Text" thingy underneath (opens text below)
+
+How best to achieve this?  
+1) All in one file/page, check via js what screen is looking at the thing, then adjust accordingly
+    Does not seem like a reasonable approach. Just bloats up everything and removes the cleanliness of the code that I'm specifically using the SPA approach for.  
+    If it goes wrong, it really ruins the entire thing. 
+2) On first load, detect screen size, then route to proper page in question  
+    Make mobile the default, if something else, send to desktop view
+3) Don't overthink it. QR codes will be read from smartphones, so no need to make it desktop friendly (it'll work, just not look too pretty)
+
+
+How to check? 
+User agent is common solution, but seems kind of shitty.  
+Just check screen size...  
+https://stackoverflow.com/questions/48515023/display-different-vuejs-components-for-mobile-browsers  
+'''
+isMobile() {
+    if( screen.width <= 760 ) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+'''
+
+### failsafe  
+
+if things go awry, offer a menu item to change mobile/desktop view  
 
 
 ## QR codes 
@@ -110,6 +170,10 @@ for example: https://www.navilens.com/accessibleqrcode/
 
 
 
+
+
+
+---  
 
 
 ## legacy considerations (to be removed)
