@@ -6,6 +6,22 @@
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details  
 -> easily toggle extra information (for example the transcript to keep it clean by default!)
 
+https://vueuse.org/core/useScrollLock/  
+to disable scrolling on mobile version (not really necessary anymore)
+
+hide the browser addres bar  
+super funky hack by ChatGPT:  
+'''
+<script>
+  window.onload = function() {
+    // Scroll the page down by a small amount to hide the address bar
+    window.scrollTo(0, 1);
+  };
+</script>
+'''
+Just simulates scrolling the page, which hides the bar on firefox, chrome for android. 
+There has to be a better way to do this, but it is also kind of beautiful. 
+
 use Nuxt ?  
 https://nuxt.com/  
 
@@ -157,6 +173,9 @@ isMobile() {
     }
 }
 '''
+or simpler: 
+''' return screen.width <= 760 '''
+
 
 ### failsafe  
 
