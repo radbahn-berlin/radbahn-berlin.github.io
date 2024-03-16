@@ -40,7 +40,7 @@ but also use own experience with neurodivergent pecularities to build an audiopl
 ### captions/transcript  
 
 show the entire text, or only the actual captions?  
-if captions only, add option to show full text (maybe via <details> element)  
+if captions only, add option to show full text (maybe via '''<details>''' element)  
 
 hide text / turn off captions by default?  
 not showing the text at first would make for a cleaner and simpler look. might also get people to actually listen and engage, instead of quickly skimming over the text and moving on  
