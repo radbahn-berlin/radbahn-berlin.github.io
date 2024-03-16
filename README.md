@@ -146,7 +146,7 @@ The app-like layout is really neat for phone screens, but would be really annoyi
 For a big screen, it would make a lot more sense to show multiple / all the audiotracks on one page, instead of doing all the reloading.  
 
 Desktop view could have cards or such?  
-Or just all the tracks going from top to bottom (with <details> giving the option to show the text). 
+Or just all the tracks going from top to bottom (with \<details> giving the option to show the text). 
 so... 
 image on the left, audio player on the right, little "Hier aufklappen für den Text" thingy underneath (opens text below)
 
