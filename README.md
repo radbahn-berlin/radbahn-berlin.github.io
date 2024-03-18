@@ -1,6 +1,15 @@
 ## currently active page
 [# radbahn-berlin.github.io](https://radbahn-berlin.github.io/)https://radbahn-berlin.github.io/
 
+## note for Ks: currently working in conda: audioguide-vue-env on mac  
+
+not the most obvious way to go with node, but I'm used to it, so I'm sticking with it!  
+2024-03-18 
+set up new env, installed (and updated) npm, vue cli  
+create new vue project using default preset  
+
+
+
 ## potentially interesting options  
 
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details  
