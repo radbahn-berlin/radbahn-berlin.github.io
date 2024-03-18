@@ -49,7 +49,7 @@ but also use own experience with neurodivergent pecularities to build an audiopl
 ### captions/transcript  
 
 show the entire text, or only the actual captions?  
-if captions only, add option to show full text (maybe via <details> element)  
+if captions only, add option to show full text (maybe via \<details> element)  
 
 hide text / turn off captions by default?  
 not showing the text at first would make for a cleaner and simpler look. might also get people to actually listen and engage, instead of quickly skimming over the text and moving on  
@@ -155,7 +155,7 @@ The app-like layout is really neat for phone screens, but would be really annoyi
 For a big screen, it would make a lot more sense to show multiple / all the audiotracks on one page, instead of doing all the reloading.  
 
 Desktop view could have cards or such?  
-Or just all the tracks going from top to bottom (with <details> giving the option to show the text). 
+Or just all the tracks going from top to bottom (with \<details> giving the option to show the text). 
 so... 
 image on the left, audio player on the right, little "Hier aufklappen für den Text" thingy underneath (opens text below)
 
