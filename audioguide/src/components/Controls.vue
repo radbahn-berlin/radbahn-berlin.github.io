@@ -19,7 +19,7 @@
   </footer>
 </template>
 
-<script>
+<script setup>
 // Some funkiness to make sure the DOM is loaded before any code is executed
 document.addEventListener('DOMContentLoaded', function() {
     // Get the audio player
