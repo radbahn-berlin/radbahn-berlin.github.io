@@ -1,14 +1,29 @@
 ## currently active page
 [# radbahn-berlin.github.io](https://radbahn-berlin.github.io/)https://radbahn-berlin.github.io/
 
-## note for Ks: currently working in conda: audioguide-vue-env on mac  
+## note for Ks: 
+
+currently working in conda: audioguide-vue-env on mac  
 
 not the most obvious way to go with node, but I'm used to it, so I'm sticking with it!  
 2024-03-18 
+installed vue extension for vscode
 set up new env, installed (and updated) npm, vue cli  
 create new vue project using default preset  
+...
+Do I really want all of this stuff? Did kind of plan to build things from scratch with minimal setup. 
+Now have a 12000 lines package-lock.json file. No problem, but not something I wrote.
 
+Hm... 
+Vite does look like a pretty neat addition. Hot Module Replacement -> immediately see changes!  
+-> replaces vue cli (which apparenly is on life support) 
 
+NO NUXT (is overkill)
+
+### Update  
+
+decided on vite  
+using vue with javascript (can always change to typescript later)
 
 ## potentially interesting options  
 
