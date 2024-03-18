@@ -25,6 +25,9 @@ NO NUXT (is overkill)
 decided on vite  
 using vue with javascript (can always change to typescript later)
 
+use vue router for SPA?  
+-> looks promising 
+
 ## potentially interesting options  
 
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details  
