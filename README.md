@@ -15,10 +15,25 @@ no more conda!
 https://vitejs.dev/guide/ 
 setup: vue + js + vue router 
 
+#### really overwhelmed with all the boiler plate code...
+deleted most of it -> start fresh!
+Update: was NOT a good idea... Reverted via git 
+
+Hiding clutter  
+
+added .vscode > settings.json with 
+{
+"files.exclude": {
+    "audioguide/*.json": true,
+    "audioguide/vite.config.js": true,
+    "audioguide/node_modules": true,
+    "audioguide/.vscode": true,
+  }
+}
+to hide all the config files! 
 
 
 ### Legacy stuff
-
 
 currently working in conda: audioguide-vue-env on mac  
 
@@ -159,6 +174,14 @@ It is important to remember that howler.js selects the first compatible sound fr
 
 https://icon-sets.iconify.design/?query=play  
 IonIcons are nice and have everything we need
+
+### Favicon  
+
+used https://realfavicongenerator.net/ to generate a bunch of versions from the 192x192 thing I scraped from radbahn.berlin a while ago  
+the links to them is in index.html head  
+will need to figure out how to automatically put them into al pages  
+-> some sort of template thing  
+
 
 ## language selection 
 
