@@ -3,6 +3,23 @@
 
 ## note for Ks: 
 
+### FRESH START  
+no more conda!  
+
+#### setting up VSCode environment / project  
+
+1) install node  
+
+2) create vite project  
+% npm create vite@latest  
+https://vitejs.dev/guide/ 
+setup: vue + js + vue router 
+
+
+
+### Legacy stuff
+
+
 currently working in conda: audioguide-vue-env on mac  
 
 not the most obvious way to go with node, but I'm used to it, so I'm sticking with it!  
@@ -20,13 +37,23 @@ Vite does look like a pretty neat addition. Hot Module Replacement -> immediatel
 
 NO NUXT (is overkill)
 
-### Update  
+#### Update  
 
 decided on vite  
 using vue with javascript (can always change to typescript later)
 
 use vue router for SPA?  
 -> looks promising 
+INSTALLED
+
+#### 14:50 fuck  
+let's start fresh. conda stuff was messing with everything  
+% conda config --set auto_activate_base false  
+-> stops it from automatically starting  
+
+
+
+
 
 ## potentially interesting options  
 
