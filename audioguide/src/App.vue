@@ -14,7 +14,7 @@ import Controls from './components/Controls.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/language">Language</RouterLink>
         <a href="https://radbahn.berlin">Radbahn Berlin</a>
       </nav>
     </div>

@@ -59,6 +59,7 @@
 }
 
 body {
+  padding-bottom: 10vh; /* to not overlap the footer */
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);

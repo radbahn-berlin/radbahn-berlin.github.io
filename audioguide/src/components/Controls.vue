@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <style scoped>
+
 /* Hide the original audioplayer from view, but keep it visible to screenreaders */
 #audioPlayer {
     visibility: hidden;
@@ -106,6 +107,7 @@ footer {
 .progress-bar-container {
     height: 10px;
     width: 100%; 
+    background-color: grey;
     padding: 0 10px; /* 10px padding on the left and right */
     margin-bottom: 10px;
 }
