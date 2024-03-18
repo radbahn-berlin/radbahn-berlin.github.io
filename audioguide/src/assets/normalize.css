@@ -238,14 +238,6 @@ select {
  * 4. CUSTOM FOR WEBFLOW: Removed the input[type="submit"] selector to reduce
  *    specificity and defer to the .w-button selector
  */
-button,
-html input[type="button"],
-input[type="reset"] {
-  -webkit-appearance: button;
-  /* 2 */
-  cursor: pointer;
-  /* 3 */
-}
 /**
  * Re-set default cursor for disabled elements.
  */
@@ -290,15 +282,6 @@ input[type='radio'] {
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   height: auto;
-}
-/**
- * 1. CUSTOM FOR WEBFLOW: changed from `textfield` to `none` to normalize iOS rounded input
- * 2. CUSTOM FOR WEBFLOW: box-sizing: content-box rule removed
- *    (similar to normalize.css >=4.0.0)
- */
-input[type='search'] {
-  -webkit-appearance: none;
-  /* 1 */
 }
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
