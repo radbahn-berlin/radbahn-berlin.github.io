@@ -118,6 +118,11 @@ not showing the text at first would make for a cleaner and simpler look. might a
 
 ## audioplayer implementation  
 
+reference for all the properties/methods
+https://www.w3schools.com/tags/ref_av_dom.asp
+
+
+
 https://github.com/goldfire/howler.js?tab=readme-ov-file#format-recommendations  
 TLDR: use webm, with mp3 as fallback to provider full browser coverage  
 
