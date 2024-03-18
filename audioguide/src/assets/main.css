@@ -15,6 +15,14 @@ a,
   padding: 3px;
 }
 
+a,
+.rlb-green {
+  text-decoration: none;
+  color: #008351;
+  transition: 0.4s;
+  padding: 3px;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
