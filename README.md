@@ -5,6 +5,8 @@ https://www.radbahn-berlin.github.io
 
 on samsung dex: just use f11 for fullscreen! 
 if ctrl+v doesn't work, just.... I dunno. It worked later. 
+honestly, this is totally workable! 
+
 
 ### FRESH START  
 no more conda!  
