@@ -8,6 +8,7 @@ import { Icon } from '@iconify/vue';
 <template>
   <div class="wrapper">
     <nav class="flex-container">
+      
       <a href="https://radbahn.berlin" class="flex-item">
         <img src="@/assets/TEMPORARY-radbahnSchriftzug.png" alt="Radbahn" class="logo">
       </a>
@@ -17,12 +18,14 @@ import { Icon } from '@iconify/vue';
         <Icon icon="ion:language-outline" 
         class="language-icon flex-item"/>
         <div class="dropdown flex-item">
-          <Icon icon="iconamoon:menu-burger-horizontal" class="icon"/> 
-          <!-- <div class="dropdown-content">
+          <div> <!-- I don't understand why, but this additional divfixes the centering... -->
+            <Icon icon="iconamoon:menu-burger-horizontal" class="icon flex-item" /> 
+          </div>
+          <div class="dropdown-content">
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/about">About</RouterLink>
             <RouterLink to="/language">Language</RouterLink>
-          </div> -->
+          </div>
         </div>
       </div>
       
@@ -35,6 +38,7 @@ import { Icon } from '@iconify/vue';
 </template>
 
 <style scoped>
+
 .flex-container {
   display: flex;
   justify-content: space-between;
@@ -42,8 +46,8 @@ import { Icon } from '@iconify/vue';
 }
 
 .flex-item {
-  /* Aligns the image to the left and the icon to the right */
   align-self: center;
+  line-height:0;   /* this FINALLY fixed the misalignment of the logo and the rest of the flex-items... */
 }
 
 /* Height of navbar items. 5% of screen height, unless super tall, then 4% */
@@ -65,7 +69,7 @@ import { Icon } from '@iconify/vue';
 }
 
 
-/* .dropdown {
+.dropdown {
   position: relative;
   display: inline-block;
 }
@@ -81,6 +85,6 @@ import { Icon } from '@iconify/vue';
 }
 .dropdown:hover .dropdown-content {
   display: block;
-} */
+}
 
 </style>
