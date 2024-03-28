@@ -1,7 +1,8 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import Controls from './components/Controls.vue'
 import Navbar from './components/Navbar.vue'
+import Controls from './components/Controls.vue'
+import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
@@ -10,10 +11,13 @@ import Navbar from './components/Navbar.vue'
     <Navbar/>
   </header>
 
-  <body>
+  <main>
     <HelloWorld msg="Hello Test"/>
+  </main>
+
+  <footer>
     <Controls/>
-  </body>
+  </footer>
 
 </template>
 
