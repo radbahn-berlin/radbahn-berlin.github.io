@@ -20,7 +20,7 @@ import Controls from './components/Controls.vue'
     </div>
   </header>
 
-  <!-- Here we import components -->
+  <!-- import components here -->
   <RouterView />
   <Controls />
   
