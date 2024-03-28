@@ -11,8 +11,9 @@ import { Icon } from '@iconify/vue';
       <a href="https://radbahn.berlin" class="flex-item">
         <img src="@/assets/TEMPORARY-radbahnSchriftzug.png" alt="Radbahn" class="logo">
       </a>
-      <div class="flex-item">
-        <Icon icon="iconamoon:menu-burger-horizontal" class="icon" /> 
+      <div class="flex-item flex-container">
+        <Icon icon="ion:language-outline" class="language-icon flex-item"/>
+        <Icon icon="iconamoon:menu-burger-horizontal" class="icon flex-item" /> 
         <!-- <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/language">Language</RouterLink> -->
@@ -37,8 +38,22 @@ import { Icon } from '@iconify/vue';
   align-self: center;
 }
 
+/* Height of navbar items. 5% of screen height, unless super tall, then 4% */
 .logo, .icon {
-  height: 30px;
+  height: 5vh; 
   width: auto;
 }
+.language-icon {
+  height: 4vh;
+  width:auto;
+}
+@media (min-height: 800px) {
+  .logo, .icon {
+    height: 4vh; 
+  }
+  .language-icon {
+    height: 3vh;
+  }
+}
+
 </style>
