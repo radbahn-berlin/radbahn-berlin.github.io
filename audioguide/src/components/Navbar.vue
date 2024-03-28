@@ -48,8 +48,12 @@ import { Icon } from '@iconify/vue';
 }
 
 /* Height of navbar items. 5% of screen height, unless super tall, then 4% */
-.logo, .icon {
+.logo {
   height: 5vh; 
+  width: auto;
+}
+.icon {
+  height: 7vh;
   width: auto;
 }
 .language-icon {
