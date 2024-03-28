@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>This is an about page. Basically an impressum? Not sure if we need this -> just link to impressum of radbahn.berlin.</h1>
   </div>
 </template>
 

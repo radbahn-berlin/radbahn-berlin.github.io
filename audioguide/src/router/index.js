@@ -10,6 +10,12 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/1',
+      name: '1',
+      component: () => import('../views/ContentView.vue')
+    },
+    
+    {
       path: '/language',
       name: 'language',
       component: () => import('../views/Language.vue')

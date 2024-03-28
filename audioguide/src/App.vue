@@ -1,7 +1,7 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
 import Controls from './components/Controls.vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
 
 </script>
 
@@ -11,9 +11,11 @@ import HelloWorld from './components/HelloWorld.vue'
     <Navbar/>
   </header>
 
-  <main>
-    <HelloWorld msg="Hello Test"/>
-  </main>
+  <!-- <main>
+    <Station/>
+  </main> -->
+
+  <RouterView />
 
   <footer>
     <Controls/>

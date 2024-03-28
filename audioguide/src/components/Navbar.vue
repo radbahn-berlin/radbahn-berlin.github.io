@@ -30,7 +30,7 @@ import { Icon } from '@iconify/vue';
   </div>
 
   <!-- import components here -->
-  <RouterView />
+  <!-- <RouterView /> -->
   
 </template>
 
