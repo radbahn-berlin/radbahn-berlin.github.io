@@ -13,14 +13,11 @@ import { Icon } from '@iconify/vue';
         <img src="@/assets/TEMPORARY-radbahnSchriftzug.png" alt="Radbahn" class="logo">
       </a>
 
-
       <div class="flex-item flex-container">
-        <Icon icon="ion:language-outline" 
-        class="language-icon flex-item"/>
-        <div class="dropdown flex-item">
-          <div> <!-- I don't understand why, but this additional divfixes the centering... -->
-            <Icon icon="iconamoon:menu-burger-horizontal" class="icon flex-item" /> 
-          </div>
+        <Icon icon="ion:language-outline" class="language-icon flex-item"/>
+
+        <div class="dropdown">
+          <Icon icon="iconamoon:menu-burger-horizontal" class="icon flex-item dropbtn" /> 
           <div class="dropdown-content">
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/about">About</RouterLink>
@@ -69,20 +66,34 @@ import { Icon } from '@iconify/vue';
 }
 
 
+.dropbtn {
+  cursor: pointer;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 0;
   background-color: #f9f9f9;
-  min-width: 160px;
+  right: 0;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
   z-index: 1;
 }
+
+.dropdown-content a {
+  color: black;
+  padding: 20px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 24px;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
