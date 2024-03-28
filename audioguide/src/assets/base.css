@@ -60,7 +60,7 @@
 
 body {
   padding-bottom: 10vh; /* to not overlap the footer */
-  min-height: 100vh;
+  /* min-height: 100vh; no clue why this is here */
   color: var(--color-text);
   background: var(--color-background);
   transition:
