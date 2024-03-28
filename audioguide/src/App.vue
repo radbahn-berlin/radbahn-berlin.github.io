@@ -11,10 +11,7 @@ import { RouterView } from 'vue-router'
     <Navbar/>
   </header>
 
-  <!-- <main>
-    <Station/>
-  </main> -->
-
+  <!-- RouterView retrieves the main content of the page, depending on url. -->
   <RouterView />
 
   <footer>
