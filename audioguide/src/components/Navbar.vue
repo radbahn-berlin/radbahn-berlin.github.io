@@ -1,17 +1,22 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
+import { Icon } from '@iconify/vue';
 </script>
 
 
 <!-- Do I put <header> in this component? Or an empty header in App.vue and fill it with the navbar? -->
 <template>
-
   <div class="wrapper">
-    <nav>
-      <a href="https://radbahn.berlin"><img src="@/assets/TEMPORARY-radbahnSchriftzug.png" alt="Radbahn" class="logo" style="width:auto;height:42px;"></a>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/language">Language</RouterLink>
+    <nav class="flex-container">
+      <a href="https://radbahn.berlin" class="flex-item">
+        <img src="@/assets/TEMPORARY-radbahnSchriftzug.png" alt="Radbahn" class="logo">
+      </a>
+      <div class="flex-item">
+        <Icon icon="iconamoon:menu-burger-horizontal" class="icon" /> 
+        <!-- <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/language">Language</RouterLink> -->
+      </div>
     </nav>
   </div>
 
@@ -21,4 +26,19 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-item {
+  /* Aligns the image to the left and the icon to the right */
+  align-self: center;
+}
+
+.logo, .icon {
+  height: 30px;
+  width: auto;
+}
 </style>

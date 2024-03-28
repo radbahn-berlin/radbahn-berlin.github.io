@@ -185,6 +185,9 @@ It is important to remember that howler.js selects the first compatible sound fr
 https://icon-sets.iconify.design/?query=play  
 IonIcons are nice and have everything we need
 
+installed and imported into vue: 
+https://iconify.design/docs/icon-components/vue/
+
 ### Favicon  
 
 used https://realfavicongenerator.net/ to generate a bunch of versions from the 192x192 thing I scraped from radbahn.berlin a while ago  
