@@ -1,6 +1,9 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterLink } from 'vue-router';
 import { Icon } from '@iconify/vue';
+import router from '../router/index.js';
+const excludeRoutes = [ ];
+const routes = router.options.routes.filter(route => !excludeRoutes.includes(route.name));
 </script>
 
 
@@ -19,9 +22,7 @@ import { Icon } from '@iconify/vue';
         <div class="dropdown">
           <Icon icon="iconamoon:menu-burger-horizontal" class="icon flex-item dropbtn" /> 
           <div class="dropdown-content">
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/about">About</RouterLink>
-            <RouterLink to="/language">Language</RouterLink>
+            <RouterLink v-for="route in routes" :key="route.name" :to="route.path">{{ route.name }}</RouterLink>
           </div>
         </div>
       </div>

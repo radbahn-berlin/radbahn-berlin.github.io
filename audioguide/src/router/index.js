@@ -7,8 +7,8 @@ const router = createRouter({
 
     // Experimenting 
     {
-      path: '/data',
-      name: 'data',
+      path: '/test',
+      name: 'test',
       component: () => import('../experimenting/Test.vue')
     },
     // end of experimenting
@@ -20,8 +20,8 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/1',
-      name: '1',
+      path: '/content',
+      name: 'content',
       component: () => import('../views/ContentView.vue')
     },
     
