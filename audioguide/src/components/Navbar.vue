@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { RouterLink } from 'vue-router';
 import { Icon } from '@iconify/vue';
 import router from '../router/index.js';
 const excludeRoutes = [ ];
