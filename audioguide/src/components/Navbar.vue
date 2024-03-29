@@ -2,7 +2,7 @@
 import { RouterLink } from 'vue-router';
 import { Icon } from '@iconify/vue';
 import router from '../router/index.js';
-const excludeRoutes = ['testHtml'];
+const excludeRoutes = ['testHtml', 'not-found'];
 const routes = router.options.routes.filter(route => !excludeRoutes.includes(route.name));
 </script>
 

@@ -2,6 +2,13 @@
 import Navbar from './components/Navbar.vue'
 import Controls from './components/Controls.vue'
 import { RouterView } from 'vue-router'
+import { useRoute } from 'vue-router'
+import { defineExpose } from 'vue'
+
+// This makes it possible to access the route object in the template, for the footer to be hidden on the 404 page.
+const route = useRoute()
+defineExpose({ route })
+
 
 </script>
 
@@ -14,7 +21,7 @@ import { RouterView } from 'vue-router'
   <!-- RouterView retrieves the main content of the page, depending on url. -->
   <RouterView />
 
-  <footer>
+  <footer v-if="route.name !== 'not-found'">
     <Controls/>
   </footer>
 

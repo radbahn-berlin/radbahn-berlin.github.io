@@ -22,7 +22,7 @@
 
 
   // retrieve Content from useContent.js file
-  import { useContent } from './useContent.js'
+  import { useContent } from '../content/useContent.js'
 
   const { content, activeContent, setActiveContent } = useContent()
   const activeIndex = ref(0) // Initialize activeIndex
@@ -100,4 +100,4 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-</style>
+</style>../content/useContent.js
