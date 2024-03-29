@@ -9,7 +9,7 @@ const router = createRouter({
     {
       path: '/data',
       name: 'data',
-      component: () => import('../experimenting/Data.vue')
+      component: () => import('../experimenting/Test.vue')
     },
     // end of experimenting
 
