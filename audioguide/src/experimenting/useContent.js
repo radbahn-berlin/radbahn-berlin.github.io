@@ -17,6 +17,27 @@ export function useContent() {
       text: 'Text 1',
       altText: 'Alt text 1',
     },
+    {
+      index: 2,
+      picture: 'link-to-picture-1',
+      title: 'Title 1',
+      text: 'Text 1',
+      altText: 'Alt text 1',
+    },
+    {
+      index: 3,
+      picture: 'link-to-picture-1',
+      title: 'Title 1',
+      text: 'Text 1',
+      altText: 'Alt text 1',
+    },
+    {
+      index: 4,
+      picture: 'link-to-picture-1',
+      title: 'Title 1',
+      text: 'Text 1',
+      altText: 'Alt text 1',
+    },
     // Add more items as needed...
   ])
 

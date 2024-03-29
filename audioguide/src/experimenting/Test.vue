@@ -41,22 +41,27 @@
   import { useContent } from './useContent.js'
 
   const { activeContent, setActiveContent } = useContent()
-  const editMessage = ref(0) // Initialize editMessage
+  const activeIndex = ref(0) // Initialize activeIndex
 
   const updateContent = () => {
-    setActiveContent(editMessage.value)
+    setActiveContent(activeIndex.value)
+  }
+
+
+
+  const previousPage = () => {
+    if (activeIndex.value > 0){
+      activeIndex.value--
+    }
+    updateContent()
   }
 
   const nextPage = () => {
-    editMessage.value++
+    if (activeIndex.value < 4){
+      activeIndex.value++
+    }
     updateContent()
   }
-
-  const previousPage = () => {
-    editMessage.value--
-    updateContent()
-  }
-
   
 
 
@@ -83,15 +88,18 @@
 
     <br><br>
 
+    <!-- Retrieve Content from useContent.js -->
     <p>{{ activeContent.index }}</p>
     <img :src="activeContent.picture" :alt="activeContent.altText">
     <h1>{{ activeContent.title }}</h1>
     <article>{{ activeContent.text }}</article>
 
-    <input type="number" id="changeContent" v-model.number="editMessage" @change="updateContent">
+    <!-- Buttons to move between pages -->
+    <input type="number" id="changeContent" v-model.number="activeIndex" @change="updateContent">
     <div>
-      <button @click="previousPage">previous Page</button>
-      <button @click="nextPage">next Page</button>
+      <button class="buttonControl" @click="previousPage">{{ activeContent.index <= 0 ? "Home" : activeContent.index - 1 }}</button>
+      <button disabled>{{ activeContent.index }}</button>
+      <button class="buttonControl" @click="nextPage">{{ activeContent.index >= 4 ? "" : activeContent.index + 1}}</button>
     </div>
     
 
@@ -109,4 +117,15 @@
 
 <style scoped>
 
+.buttonControl {
+  border: none;
+  color: rgb(131, 21, 21);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
