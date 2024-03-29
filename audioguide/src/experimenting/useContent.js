@@ -5,15 +5,17 @@ export function useContent() {
   const content = ref([
     {
       index: 0,
-      picture: 'link-to-picture-1',
-      title: 'Title 1',
-      text: 'Text 1',
+      picture: 'link-to-picture-0',
+      title: 'Title 0',
+      text: 'Text 0',
+      altText: 'Alt text 0',
     },
     {
       index: 1,
-      picture: 'link-to-picture-2',
-      title: 'Title 2',
-      text: 'Text 2',
+      picture: 'link-to-picture-1',
+      title: 'Title 1',
+      text: 'Text 1',
+      altText: 'Alt text 1',
     },
     // Add more items as needed...
   ])
@@ -30,6 +32,7 @@ export function useContent() {
         picture: '',
         title: 'Content not found',
         text: 'Please enter a valid index.',
+        altText: 'Picture not found.',
       }
     }
   }

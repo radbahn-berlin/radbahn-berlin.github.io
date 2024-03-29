@@ -47,6 +47,16 @@
     setActiveContent(editMessage.value)
   }
 
+  const nextPage = () => {
+    editMessage.value++
+    updateContent()
+  }
+
+  const previousPage = () => {
+    editMessage.value--
+    updateContent()
+  }
+
   
 
 
@@ -73,11 +83,16 @@
 
     <br><br>
 
-    <input type="number" id="changeContent" v-model.number="editMessage" @change="updateContent">
     <p>{{ activeContent.index }}</p>
-    <a :href="activeContent.picture"></a>
+    <img :src="activeContent.picture" :alt="activeContent.altText">
     <h1>{{ activeContent.title }}</h1>
     <article>{{ activeContent.text }}</article>
+
+    <input type="number" id="changeContent" v-model.number="editMessage" @change="updateContent">
+    <div>
+      <button @click="previousPage">previous Page</button>
+      <button @click="nextPage">next Page</button>
+    </div>
     
 
     <br><br>
