@@ -24,8 +24,9 @@
     { name: 'Türkçe'}
   ])
 
+  // Set Deutsch as default language.
   const activeLanguage = ref(localStorage.getItem('activeLanguage'))
-  if (activeLanguage == null){
+  if (activeLanguage.value == null){
     localStorage.setItem('activeLanguage', 'Deutsch')
   }
 
@@ -36,6 +37,17 @@
   
 
 
+  // retrieve Content from useContent.js file
+  import { useContent } from './useContent.js'
+
+  const { activeContent, setActiveContent } = useContent()
+  const editMessage = ref(0) // Initialize editMessage
+
+  const updateContent = () => {
+    setActiveContent(editMessage.value)
+  }
+
+  
 
 
 
@@ -58,6 +70,15 @@
       </li>
     </ul>
     <p>Currently active Language: {{ activeLanguage }}</p>
+
+    <br><br>
+
+    <input type="number" id="changeContent" v-model.number="editMessage" @change="updateContent">
+    <p>{{ activeContent.index }}</p>
+    <a :href="activeContent.picture"></a>
+    <h1>{{ activeContent.title }}</h1>
+    <article>{{ activeContent.text }}</article>
+    
 
     <br><br>
 
