@@ -19,24 +19,24 @@ export function useContent() {
     },
     {
       index: 2,
-      picture: 'link-to-picture-1',
-      title: 'Title 1',
-      text: 'Text 1',
-      altText: 'Alt text 1',
+      picture: 'link-to-picture-2',
+      title: 'Title 2',
+      text: 'Text 2',
+      altText: 'Alt text 2',
     },
     {
       index: 3,
-      picture: 'link-to-picture-1',
-      title: 'Title 1',
-      text: 'Text 1',
-      altText: 'Alt text 1',
+      picture: 'link-to-picture-3',
+      title: 'Title 3',
+      text: 'Text 3',
+      altText: 'Alt text 3',
     },
     {
       index: 4,
-      picture: 'link-to-picture-1',
-      title: 'Title 1',
-      text: 'Text 1',
-      altText: 'Alt text 1',
+      picture: 'link-to-picture-4',
+      title: 'Title 4',
+      text: 'Text 4',
+      altText: 'Alt text 4',
     },
     // Add more items as needed...
   ])
@@ -60,5 +60,5 @@ export function useContent() {
 
 
 
-  return { activeContent, setActiveContent }
+  return { content, activeContent, setActiveContent }
 }

@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, watch } from 'vue'
+  import { ref, watch, computed } from 'vue'
   const count = ref(0)
   const msg = ref('')
   const rawHtml = ref('<span style="color: red">This should be red.</span>')
@@ -40,8 +40,10 @@
   // retrieve Content from useContent.js file
   import { useContent } from './useContent.js'
 
-  const { activeContent, setActiveContent } = useContent()
+  const { content, activeContent, setActiveContent } = useContent()
   const activeIndex = ref(0) // Initialize activeIndex
+  // computed basically creates a reactive value that updates whenever the value it depends on changes (even though it won't change in this case, it is still required to give access to the length of the content array)
+  const indexLength = computed(() => content.value.length - 1)
 
   const updateContent = () => {
     setActiveContent(activeIndex.value)
@@ -57,7 +59,7 @@
   }
 
   const nextPage = () => {
-    if (activeIndex.value < 4){
+    if (activeIndex.value < content.value.length - 1){
       activeIndex.value++
     }
     updateContent()
@@ -99,7 +101,7 @@
     <div>
       <button class="buttonControl" @click="previousPage">{{ activeContent.index <= 0 ? "Home" : activeContent.index - 1 }}</button>
       <button disabled>{{ activeContent.index }}</button>
-      <button class="buttonControl" @click="nextPage">{{ activeContent.index >= 4 ? "" : activeContent.index + 1}}</button>
+      <button class="buttonControl" @click="nextPage">{{ activeContent.index >= indexLength ? " " : activeContent.index + 1}}</button>
     </div>
     
 
