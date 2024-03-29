@@ -28,6 +28,11 @@ const routes = [
       name: 'testHtml',
       component: () => import('../experimenting/Testhtml.vue')
     },
+    {
+      path: '/testPath',
+      name: 'testPath',
+      component: () => import('../experimenting/TestPath.vue')
+    },
     // end of experimenting
 
 

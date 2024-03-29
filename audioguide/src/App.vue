@@ -21,6 +21,7 @@ defineExpose({ route })
   <!-- RouterView retrieves the main content of the page, depending on url. -->
   <RouterView />
 
+  <!-- Controls are only displayed on pages that are not the 404 page. -->
   <footer v-if="route.name !== 'not-found'">
     <Controls/>
   </footer>
