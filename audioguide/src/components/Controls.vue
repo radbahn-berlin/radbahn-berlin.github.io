@@ -1,47 +1,33 @@
 <script setup>
-import { ref, watch, computed, onMounted } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useContent } from '../content/useContent.js';
 
 const route = useRoute();
 const router = useRouter();
-const path = ref(null);
 const id = ref(null);
+const maxIndex = useContent().numberOfContent.value - 1; // Get the number of content items from useContent.js
 
-// Stuff for the path and id 
 onMounted(() => {
-  path.value = route.path;
   id.value = parseInt(route.path.substring(1), 10); // Remove the leading slash and convert to integer
 });
 // This was required again for when using the buttons or nav elements to change the url
 watch(route, () => {
-  path.value = route.path;
   id.value = parseInt(route.path.substring(1), 10);
 });
-
-
-// Not sure I need all of this, I'm only really interested in getting the max index
-const { content, setActiveContent } = useContent();
-const indexLength = computed(() => content.value.length - 1);
-
-const updateContent = () => {
-  setActiveContent(id.value);
-};
 
 const previousPage = () => {
   if (id.value > 0) {
     id.value--;
+    router.push(`/${id.value}`); // Update the route
   }
-  updateContent();
-  router.push(`/${id.value}`); // Update the route
 };
 
 const nextPage = () => {
-  if (id.value < indexLength.value) {
+  if (id.value < maxIndex) {
     id.value++;
+    router.push(`/${id.value}`); // Update the route
   }
-  updateContent();
-  router.push(`/${id.value}`); // Update the route
 };
 
 /* IMPORTANT 
@@ -99,11 +85,22 @@ document.addEventListener('DOMContentLoaded', function() {
 // end of original main.js port
 </script>
 
+<script>
+// 2nd script tag for the import of audioSrc from ContentView.vue. 
+// Should probably redo this, but it works for now.
+export default {
+  props: {
+    audioSrc: String
+  },
+  // rest of your component
+}
+</script>
+
 <template>
 
   <!-- Audio Player -->
   <audio controls id="audioPlayer">
-      <source src="../audiotracks/Afr_03_Fallbeispiel_Berlin.mp3" type="audio/mpeg">
+      <source :src="audioSrc" type="audio/mpeg">
       Your browser does not support the audio element.
   </audio>
 
@@ -116,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="button-controls">
         <button class="buttonControl" @click="previousPage">{{ id <= 0 ? "Home" : '<- ' + (id -1) }}</button>
         <button id="playPause">Play</button>
-        <button class="buttonControl" @click="nextPage">{{ id >= indexLength ? "Fin" : id + 1 + ' ->'}}</button>
+        <button class="buttonControl" @click="nextPage">{{ id >= maxIndex ? "Fin" : id + 1 + ' ->'}}</button>
     </div>
 
   </div>
@@ -126,10 +123,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <style scoped>
 
 /* Hide the original audioplayer from view, but keep it visible to screenreaders */
-#audioPlayer {
+/* #audioPlayer {
     visibility: hidden;
     position: absolute;
-}
+} */
 
 
 button {

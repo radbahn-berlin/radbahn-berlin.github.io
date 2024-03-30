@@ -1,45 +1,52 @@
 // useContent.js
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export function useContent() {
   const content = ref([
     {
       index: 0,
-      picture: 'link-to-picture-0',
+      picture: 'https://via.placeholder.com/150',
       title: 'Title 0',
       text: 'Text 0',
       altText: 'Alt text 0',
+      audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     },
     {
       index: 1,
-      picture: 'link-to-picture-1',
+      picture: 'https://via.placeholder.com/150',
       title: 'Title 1',
       text: 'Text 1',
       altText: 'Alt text 1',
+      audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     },
     {
       index: 2,
-      picture: 'link-to-picture-2',
+      picture: 'https://via.placeholder.com/150',
       title: 'Title 2',
       text: 'Text 2',
       altText: 'Alt text 2',
+      audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     },
     {
       index: 3,
-      picture: 'link-to-picture-3',
+      picture: 'https://via.placeholder.com/150',
       title: 'Title 3',
       text: 'Text 3',
       altText: 'Alt text 3',
+      audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     },
     {
       index: 4,
-      picture: 'link-to-picture-4',
+      picture: 'https://via.placeholder.com/150',
       title: 'Title 4',
       text: 'Text 4',
       altText: 'Alt text 4',
+      audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     },
     // Add more items as needed...
   ])
+
+  const numberOfContent = computed(() => content.value.length)
 
   const activeContent = ref(content.value[0])
 
@@ -60,5 +67,5 @@ export function useContent() {
 
 
 
-  return { content, activeContent, setActiveContent }
+  return { content, numberOfContent, activeContent, setActiveContent }
 }

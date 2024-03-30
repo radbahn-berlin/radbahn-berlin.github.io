@@ -11,7 +11,7 @@ const contentRoutes = content.value.map((item, index) => ({
   path: `/${index}`,
   name: `content${index}`,
   component: () => import('../views/ContentView.vue'),
-  props: { activeIndex: index }
+  //props: { activeIndex: index } // Not sure what the point of this used to be, but it messes with stuff
 }))
 
 const routes = [

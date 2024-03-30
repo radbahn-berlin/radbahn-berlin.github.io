@@ -22,9 +22,10 @@ defineExpose({ route })
   <RouterView />
 
   <!-- Controls are only displayed on pages that are not the 404 page. -->
-  <footer v-if="route.name !== 'not-found'">
+  <!-- Controls are only needed on content pages! So handle it in ContentView.vue-->
+  <!-- <footer v-if="route.name !== 'not-found'">
     <Controls/>
-  </footer>
+  </footer> -->
 
 </template>
 
