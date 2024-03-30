@@ -11,9 +11,9 @@ const id = ref(null);
 // Stuff for the path and id 
 onMounted(() => {
   path.value = route.path;
-  id.value = parseInt(route.path.substring(1), 10);
+  id.value = parseInt(route.path.substring(1), 10); // Remove the leading slash and convert to integer
 });
-// This was required again
+// This was required again for when using the buttons or nav elements to change the url
 watch(route, () => {
   path.value = route.path;
   id.value = parseInt(route.path.substring(1), 10);
@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
         playPauseBtn.addEventListener('click', function() {
             if (audioPlayer.paused) {
                 audioPlayer.play();
-                this.innerHTML = '<i class="fa fa-pause"></i>'; // Change to pause icon
+                this.innerHTML = 'Pause'; // Change to pause icon
             } else {
                 audioPlayer.pause();
-                this.innerHTML = '<i class="fa fa-play"></i>'; // Change to play icon
+                this.innerHTML = 'Play'; // Change to play icon
             }
         });
     }
@@ -114,9 +114,9 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
     <div class="button-controls">
-        <button class="buttonControl" @click="previousPage">{{ id <= 0 ? "Home" : id -1 }}</button>
-        <button id="playPause">{{ id }}</button>
-        <button class="buttonControl" @click="nextPage">{{ id >= indexLength ? "Fin" : id + 1 }}</button>
+        <button class="buttonControl" @click="previousPage">{{ id <= 0 ? "Home" : '<- ' + (id -1) }}</button>
+        <button id="playPause">Play</button>
+        <button class="buttonControl" @click="nextPage">{{ id >= indexLength ? "Fin" : id + 1 + ' ->'}}</button>
     </div>
 
   </div>
