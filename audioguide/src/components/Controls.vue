@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, onMounted } from 'vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useContent } from '../content/useContent.js';
 
@@ -7,10 +7,22 @@ const route = useRoute();
 const router = useRouter();
 const id = ref(null);
 const maxIndex = useContent().numberOfContent.value - 1; // Get the number of content items from useContent.js
+const audioPlayer = ref(null);
+const playPauseBtn = ref(null);
+let timeUpdateEvent = null;
 
 onMounted(() => {
   id.value = parseInt(route.path.substring(1), 10); // Remove the leading slash and convert to integer
+  timeUpdateEvent = () => {
+    var percentage = (audioPlayer.value.currentTime / audioPlayer.value.duration) * 100;
+    document.getElementById('globalProgressBar').style.width = percentage + '%';
+  };
+  audioPlayer.value.addEventListener('timeupdate', timeUpdateEvent);
 });
+onUnmounted(() => {
+  audioPlayer.value.removeEventListener('timeupdate', timeUpdateEvent);
+});
+
 // This was required again for when using the buttons or nav elements to change the url
 watch(route, () => {
   id.value = parseInt(route.path.substring(1), 10);
@@ -30,59 +42,16 @@ const nextPage = () => {
   }
 };
 
-/* IMPORTANT 
-All of the below is actually just stuff I ported from the original main.js.
-Needs to be reassessed and possibly rewritten to fit the new Vue 3 setup.
-*/
-// Some funkiness to make sure the DOM is loaded before any code is executed
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the audio player
-    var audioPlayer = document.getElementById('audioPlayer');
-    var progressBar = document.getElementById('globalProgressBar');
-    var playPauseBtn = document.getElementById('playPause');
+const togglePlayPause = () => {
+  if (audioPlayer.value.paused) {
+    audioPlayer.value.play();
+    playPauseBtn.value.innerHTML = 'Pause'; // Change to pause icon
+  } else {
+    audioPlayer.value.pause();
+    playPauseBtn.value.innerHTML = 'Play'; // Change to play icon
+  }
+};
 
-    // Update the progress bar as the audio plays
-    audioPlayer.addEventListener('timeupdate', function() {
-        var percentage = (this.currentTime / this.duration) * 100;
-        progressBar.style.width = percentage + '%';
-    });
-
-    // Play/Pause functionality
-    if (playPauseBtn) 
-    {
-        playPauseBtn.addEventListener('click', function() {
-            if (audioPlayer.paused) {
-                audioPlayer.play();
-                this.innerHTML = 'Pause'; // Change to pause icon
-            } else {
-                audioPlayer.pause();
-                this.innerHTML = 'Play'; // Change to play icon
-            }
-        });
-    }
-
-    // Functions to update the audio source and any associated text and images
-    // Or to move between pages
-    function nextTrack() {
-        // Logic to switch to the next track
-        console.log("next track");
-    }
-    
-    function prevTrack() {
-        // Logic to switch to the previous track
-        console.log("previous track");
-    }
-    
-    // Adding event listeners to next and previous buttons
-    // document.getElementById('nextTrack').addEventListener('click', nextTrack);
-    // document.getElementById('prevTrack').addEventListener('click', prevTrack);
-
-    // Reset button to play icon when audio finishes
-    audioPlayer.addEventListener('ended', function() {
-        playPauseBtn.innerHTML = '<i class="fa fa-play"></i>'; // Change to play icon
-    });
-});
-// end of original main.js port
 </script>
 
 <script>
@@ -99,7 +68,7 @@ export default {
 <template>
 
   <!-- Audio Player -->
-  <audio controls id="audioPlayer">
+  <audio controls id="audioPlayer" ref="audioPlayer">
       <source :src="audioSrc" type="audio/mpeg">
       Your browser does not support the audio element.
   </audio>
@@ -112,7 +81,7 @@ export default {
 
     <div class="button-controls">
         <button class="buttonControl" @click="previousPage">{{ id <= 0 ? "Home" : '<- ' + (id -1) }}</button>
-        <button id="playPause">Play</button>
+        <button id="playPause" ref="playPauseBtn" @click="togglePlayPause">Play</button>
         <button class="buttonControl" @click="nextPage">{{ id >= maxIndex ? "Fin" : id + 1 + ' ->'}}</button>
     </div>
 
