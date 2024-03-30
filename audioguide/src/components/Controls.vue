@@ -1,25 +1,53 @@
-<template>
-
-  <!-- Audio Player -->
-  <audio controls id="audioPlayer">
-      <source src="../audiotracks/Afr_03_Fallbeispiel_Berlin.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
-
-  <footer>
-      <div class="progress-bar-container">
-          <div id="globalProgressBar"></div>
-      </div>
-      <div class="footer-controls">
-          <!-- currently uses stock symbols, maybe change them to some we like and also add text: "|< 2 Play 4 >|" -->
-          <button id="prevTrack"><i class="fa fa-backward"></i>3</button>
-          <button id="playPause"><i class="fa fa-play"></i></button>
-          <button id="nextTrack">5 <i class="fa fa-forward"></i></button>
-      </div>
-  </footer>
-</template>
-
 <script setup>
+import { ref, watch, computed, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useContent } from '../content/useContent.js';
+
+const route = useRoute();
+const router = useRouter();
+const path = ref(null);
+const id = ref(null);
+
+// Stuff for the path and id 
+onMounted(() => {
+  path.value = route.path;
+  id.value = parseInt(route.path.substring(1), 10);
+});
+// This was required again
+watch(route, () => {
+  path.value = route.path;
+  id.value = parseInt(route.path.substring(1), 10);
+});
+
+
+// Not sure I need all of this, I'm only really interested in getting the max index
+const { content, setActiveContent } = useContent();
+const indexLength = computed(() => content.value.length - 1);
+
+const updateContent = () => {
+  setActiveContent(id.value);
+};
+
+const previousPage = () => {
+  if (id.value > 0) {
+    id.value--;
+  }
+  updateContent();
+  router.push(`/${id.value}`); // Update the route
+};
+
+const nextPage = () => {
+  if (id.value < indexLength.value) {
+    id.value++;
+  }
+  updateContent();
+  router.push(`/${id.value}`); // Update the route
+};
+
+/* IMPORTANT 
+All of the below is actually just stuff I ported from the original main.js.
+Needs to be reassessed and possibly rewritten to fit the new Vue 3 setup.
+*/
 // Some funkiness to make sure the DOM is loaded before any code is executed
 document.addEventListener('DOMContentLoaded', function() {
     // Get the audio player
@@ -60,16 +88,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Adding event listeners to next and previous buttons
-    document.getElementById('nextTrack').addEventListener('click', nextTrack);
-    document.getElementById('prevTrack').addEventListener('click', prevTrack);
+    // document.getElementById('nextTrack').addEventListener('click', nextTrack);
+    // document.getElementById('prevTrack').addEventListener('click', prevTrack);
 
     // Reset button to play icon when audio finishes
     audioPlayer.addEventListener('ended', function() {
         playPauseBtn.innerHTML = '<i class="fa fa-play"></i>'; // Change to play icon
     });
 });
+// end of original main.js port
 </script>
 
+<template>
+
+  <!-- Audio Player -->
+  <audio controls id="audioPlayer">
+      <source src="../audiotracks/Afr_03_Fallbeispiel_Berlin.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
+
+  <div id="control-bar">
+
+    <div class="progress-bar-container">
+        <div id="globalProgressBar"></div>
+    </div>
+
+    <div class="button-controls">
+        <button class="buttonControl" @click="previousPage">{{ id <= 0 ? "Home" : id -1 }}</button>
+        <button id="playPause">{{ id }}</button>
+        <button class="buttonControl" @click="nextPage">{{ id >= indexLength ? "Fin" : id + 1 }}</button>
+    </div>
+
+  </div>
+
+</template>
 
 <style scoped>
 
@@ -90,7 +142,7 @@ button {
     cursor: pointer;
 }
 
-footer {
+#control-bar {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -121,14 +173,14 @@ footer {
 }
 
 
-.footer-controls {
+.button-controls {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
 }
 
-.footer-controls i {
+.button-controls i {
     margin-right: 5px;
     font-size: 1.2em;
 }
