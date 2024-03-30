@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { ref, watch, onMounted, onUnmounted, defineProps } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useContent } from '../content/useContent.js';
 
@@ -11,6 +11,11 @@ const audioPlayer = ref(null);
 const playPauseBtn = ref(null);
 let timeUpdateEvent = null;
 
+// Define props
+const props = defineProps({
+  audioSrc: String
+});
+
 onMounted(() => {
   id.value = parseInt(route.path.substring(1), 10); // Remove the leading slash and convert to integer
   timeUpdateEvent = () => {
@@ -19,13 +24,15 @@ onMounted(() => {
   };
   audioPlayer.value.addEventListener('timeupdate', timeUpdateEvent);
 });
+
 onUnmounted(() => {
   audioPlayer.value.removeEventListener('timeupdate', timeUpdateEvent);
 });
 
-// This was required again for when using the buttons or nav elements to change the url
 watch(route, () => {
   id.value = parseInt(route.path.substring(1), 10);
+  audioPlayer.value.src = props.audioSrc; // Update the audio source
+  audioPlayer.value.load(); // Reload the audio player
 });
 
 const previousPage = () => {
@@ -57,6 +64,7 @@ const togglePlayPause = () => {
 <script>
 // 2nd script tag for the import of audioSrc from ContentView.vue. 
 // Should probably redo this, but it works for now.
+// Tried to delete it, but it broke the app. So it stays for now xD
 export default {
   props: {
     audioSrc: String

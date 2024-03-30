@@ -9,7 +9,7 @@ export function useContent() {
       title: 'Title 0',
       text: 'Text 0',
       altText: 'Alt text 0',
-      audioSrc: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+      audioSrc: '../src/audiotracks/Afr_03_Fallbeispiel_Berlin.mp3',
     },
     {
       index: 1,
