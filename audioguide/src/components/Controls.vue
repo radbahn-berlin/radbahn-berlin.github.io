@@ -25,8 +25,11 @@ onMounted(() => {
   audioPlayer.value.addEventListener('timeupdate', timeUpdateEvent);
 });
 
+// I'm not entirely sure why the if statement is necessary, but it breaks without it, as moving to pages other than those with an audio player will cause an error otherwise.
 onUnmounted(() => {
-  audioPlayer.value.removeEventListener('timeupdate', timeUpdateEvent);
+  if (audioPlayer.value) {
+    audioPlayer.value.removeEventListener('timeupdate', timeUpdateEvent);
+  }
 });
 
 watch(route, () => {
