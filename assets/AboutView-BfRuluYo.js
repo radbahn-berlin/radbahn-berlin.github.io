@@ -1,0 +1,1 @@
+import{_ as e,d as s,e as t,f as o}from"./index-BdTR6Fgw.js";const a={},n={class:"about"},c=o("h1",null,"This is an about page. Basically an impressum? Not sure if we need this -> just link to impressum of radbahn.berlin.",-1),i=[c];function r(_,d){return s(),t("div",n,i)}const u=e(a,[["render",r]]);export{u as default};

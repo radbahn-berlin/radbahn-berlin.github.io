@@ -1,0 +1,1 @@
+import{u,r as s,o,d as r,e as c,f as n,t as l,F as p}from"./index-BdTR6Fgw.js";const d={__name:"TestPath",setup(_){const e=u(),t=s(null),a=s(null);return o(()=>{t.value=e.path,a.value=e.path.substring(1)}),(h,i)=>(r(),c(p,null,[n("h1",null,"Test: "+l(t.value),1),n("h1",null,"Test: "+l(a.value),1)],64))}};export{d as default};
